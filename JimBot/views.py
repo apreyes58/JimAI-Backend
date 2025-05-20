@@ -18,9 +18,9 @@ def chat_view(request):
         body = json.loads(request.body)
         user_message = body.get("message")
 
-        response = openai.ChatCompleteion.create(
+        response = client.completions.create(
             model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": user_message}]
+            prompt=[{"role": "user", "content": user_message}]
         )
 
         ai_message = response['choices'][0]['message']['content']
