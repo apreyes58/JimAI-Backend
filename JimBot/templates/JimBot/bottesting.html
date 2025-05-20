@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    Service testing
+</head>
+
+<body>
+    <h1>
+        Message bot here:
+    </h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <textarea name="messsage" rows="4" cols="50"></textarea>
+        <input type="submit" value="Send">
+    </form>
+    {% if user_message %}
+    <h3>User: </h3>
+    <p>{{ user_message }}</p>
+    <h3>Bot: </h3>
+    <p>{{ ai_response }}</p>
+    {% endif %}
+</body>
+
+</html>
